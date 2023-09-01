@@ -1,5 +1,10 @@
 #include "save.h"
 
+/*
+Converts a number into a string
+input: integer
+output: that integer in string form
+*/
 char* toString(int num)
 {
 	char* str = (char*)malloc(sizeof(char));
@@ -22,6 +27,11 @@ char* toString(int num)
 	return str;
 }
 
+/*
+Converts string to int
+input: integer in string form
+output: the integer in int form
+*/
 int toInt(char* str)
 {
 	int len = strlen(str);
@@ -36,6 +46,11 @@ int toInt(char* str)
 	return num;
 }
 
+/**
+Saves a project into a file
+input: a pointer to the head of the file, and the path
+output: none
+**/
 void saveProject(FrameNode* head, char* path)
 {
 	FILE* project = fopen(path, "w");
@@ -61,6 +76,11 @@ void saveProject(FrameNode* head, char* path)
 	fclose(project);
 }
 
+/*
+Loads a project from a file
+input: the path of the project
+output: the new head
+*/
 FrameNode* loadProject(char* projectPath)
 {
 	FILE* project = fopen(projectPath, "r");
